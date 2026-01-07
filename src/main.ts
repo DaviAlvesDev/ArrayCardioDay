@@ -29,25 +29,25 @@ const bouvelards:string[] = ["Boulevard Auguste-Blanqui", "Boulevard Barbès", "
 const transportes: string[] = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ]
 
 //Ex#1: Inventores dos anos 1500
-const array1: inventor[] = inventores.filter((inventor) => Math.trunc(inventor.nascimento/100) == 15)
+const inventoresSec16: inventor[] = inventores.filter((inventor) => Math.trunc(inventor.nascimento/100) == 15)
 console.log("Inventores do século 16:")
-array1.forEach((element) => console.log(element.nome, element.sobrenome))
+inventoresSec16.forEach((element) => console.log(element.nome, element.sobrenome))
 console.log('\n')
 
 //Ex#2: Nome completo dos inventores
-const array2:string[] = inventores.map((element) => `${element.nome} ${element.sobrenome}`)
+const nomeSobrenome:string[] = inventores.map((element) => `${element.nome} ${element.sobrenome}`)
 console.log('Nome e sobrenome dos inventores:')
-array2.forEach((element) => console.log(element))
+nomeSobrenome.forEach((element) => console.log(element))
 console.log('\n')
 
 //Ex#3: Ordenar os inventores por ano de nascimento, do mais velho para o mais novo
-const array3:inventor[] = inventores.sort(function(inventor1, inventor2){
+const invAnoNasc:inventor[] = inventores.sort(function(inventor1, inventor2){
     if (inventor1.nascimento > inventor2.nascimento) return 1
     if (inventor1.nascimento < inventor2.nascimento) return -1
     return 0
 })
 console.log("Inventores ordenados pelo ano de nascimento (mais velho para mais novo):")
-array3.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome}, nascido(a) em ${inventor.nascimento}`))
+invAnoNasc.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome}, nascido(a) em ${inventor.nascimento}`))
 console.log('\n')
 
 //Ex#4 Qual a soma da idade de todos os inventores?
@@ -61,13 +61,13 @@ const totalIdade:number = idades.reduce(function(accum, curr, index, array){
 console.log(`O total das idades dos inventores é ${totalIdade} anos:`)
 
 //Ex#5 Ordenar os inventores com base nos anos vividos
-const array4:inventor[] = inventores.sort((inventor1, inventor2) => {
+const invAnosViv:inventor[] = inventores.sort((inventor1, inventor2) => {
     const idade1 = inventor1.morte - inventor1.nascimento
     const idade2 = inventor2.morte - inventor2.nascimento
 
     return idade1 - idade2
 })
-array4.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome} viveu ${inventor.morte - inventor.nascimento} anos`))
+invAnosViv.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome} viveu ${inventor.morte - inventor.nascimento} anos`))
 console.log('\n')
 
 //Ex#6 Criar uma lista dos Bouvelards em Paris que contenham 'de'
@@ -75,3 +75,16 @@ const bouvelardsComDe:string[] = bouvelards.filter((bouvelard) => bouvelard.incl
 console.log('Lista dos Bouvelards em Paris que contêm "de":')
 bouvelardsComDe.forEach((bouvelard) => console.log(bouvelard))
 console.log('\n')
+
+//Ex#7 Ordenar pessoas alfabeticamente pelo sobrenome 
+const pessoasOrd = pessoas.sort((pessoa1, pessoa2) => {
+    if (pessoa1 < pessoa2) return -1
+    if (pessoa1 > pessoa2) return 1
+    return 0
+})
+console.log('Pessoas ordenadas alfabeticamente pelo sobrenome:')
+pessoasOrd.forEach((pessoa) => console.log(pessoa))
+console.log('\n')
+
+
+

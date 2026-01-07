@@ -34,3 +34,8 @@ const todosDeMaior = pessoas.every((pessoa) => (ano - pessoa.nascimento) >= 18)
 console.log('Tem alguma pessoa de maior (+18)?', alguemDeMaior)
 console.log('Todas as pessoas são de maior (+18)?', todosDeMaior)
 console.log('\n')
+
+//Ex#2 Achar o comentário com o ID 823423
+const coment = comentarios.find((coment) => coment.id == 823423)
+console.log(`O comentário com ID ${coment?.id} é: "${coment?.texto}"`)
+console.log('\n')

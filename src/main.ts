@@ -1,3 +1,4 @@
+//Database
 interface inventor {
     nome:string
     sobrenome:string
@@ -5,7 +6,7 @@ interface inventor {
     morte:number
 }
 
-const inventores: (inventor)[] = [
+const inventores: inventor[] = [
     {nome: "Albert", sobrenome: "Einstein", nascimento: 1879, morte: 1955},
     {nome: "Isaac", sobrenome: "Newton", nascimento: 1643, morte: 1727},
     {nome: "Galileo", sobrenome: "Galilei", nascimento: 1564, morte: 1642},
@@ -15,7 +16,7 @@ const inventores: (inventor)[] = [
     {nome: "Max", sobrenome: "Planck", nascimento: 1858, morte: 1947}
 ]
 
-const pessoas: (string)[] = [
+const pessoas: string[] = [
     'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
     'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
     'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
@@ -23,8 +24,16 @@ const pessoas: (string)[] = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ]
 
-const array1: inventor[] = inventores.filter((inventor) => Math.trunc(inventor.nascimento/100) == 15)
+const transportes: string[] = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ]
 
+//Ex#1: Inventores dos anos 1500
+const array1: inventor[] = inventores.filter((inventor) => Math.trunc(inventor.nascimento/100) == 15)
 console.log("Inventores do século 16:")
 array1.forEach((element) => console.log(element.nome, element.sobrenome))
-console.log("\n")
+console.log('\n')
+
+//Ex#2: Nome completo dos inventores
+const array2:string[] = inventores.map((element) => `${element.nome} ${element.sobrenome}`)
+console.log('Nome e sobrenome dos inventores:')
+array2.forEach((element) => console.log(element))
+console.log('\n')

@@ -86,5 +86,16 @@ console.log('Pessoas ordenadas alfabeticamente pelo sobrenome:')
 pessoasOrd.forEach((pessoa) => console.log(pessoa))
 console.log('\n')
 
+//Ex#8 Contar as instâncias de cada um dos valores em transportes
+const instTransportes = transportes.reduce(function(totalTransporte: Record<string, number>, transporte){
+    if ((transporte in totalTransporte) && totalTransporte[transporte] !== undefined) {
+        totalTransporte[transporte]++
+    } else {
+        totalTransporte[transporte] = 1
+    }
+    return totalTransporte
+}, {})
 
-
+console.log('Número de instâncias por transporte:')
+Object.entries(instTransportes).forEach((transporte) => console.log(`${transporte[0]}: ${transporte[1]}`))
+console.log('\n')

@@ -24,6 +24,8 @@ const pessoas: string[] = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ]
 
+const bouvelards:string[] = ["Boulevard Auguste-Blanqui", "Boulevard Barbès", "Boulevard Beaumarchais", "Boulevard de l'Amiral-Bruix", "Boulevard Mortier", "Boulevard Poniatowski", "Boulevard Soult", "Boulevard des Capucines", "Boulevard de la Chapelle", "Boulevard de Clichy", "Boulevard du Crime", "Boulevard du Général-d'Armée-Jean-Simon", "Boulevard Haussmann", "Boulevard de l'Hôpital", "Boulevard des Italiens", "Boulevard Lefebvre", "Boulevard de la Madeleine", "Boulevard de Magenta", "Boulevard Malesherbes", "Boulevard Marguerite-de-Rochechouart", "Boulevard Montmartre", "Boulevard du Montparnasse", "Boulevard Raspail", "Boulevard Richard-Lenoir", "Boulevard Saint-Germain", "Boulevard Saint-Michel", "Boulevard de Sébastopol", "Boulevard de Strasbourg", "Boulevard du Temple", "Boulevard Voltaire", "Boulevard Hippolyte-Marquès"]
+
 const transportes: string[] = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ]
 
 //Ex#1: Inventores dos anos 1500
@@ -58,7 +60,7 @@ const totalIdade:number = idades.reduce(function(accum, curr, index, array){
 })
 console.log(`O total das idades dos inventores é ${totalIdade} anos:`)
 
-//Ex#5
+//Ex#5 Ordenar os inventores com base nos anos vividos
 const array4:inventor[] = inventores.sort((inventor1, inventor2) => {
     const idade1 = inventor1.morte - inventor1.nascimento
     const idade2 = inventor2.morte - inventor2.nascimento
@@ -66,4 +68,10 @@ const array4:inventor[] = inventores.sort((inventor1, inventor2) => {
     return idade1 - idade2
 })
 array4.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome} viveu ${inventor.morte - inventor.nascimento} anos`))
+console.log('\n')
+
+//Ex#6 Criar uma lista dos Bouvelards em Paris que contenham 'de'
+const bouvelardsComDe:string[] = bouvelards.filter((bouvelard) => bouvelard.includes('de'))
+console.log('Lista dos Bouvelards em Paris que contêm "de":')
+bouvelardsComDe.forEach((bouvelard) => console.log(bouvelard))
 console.log('\n')

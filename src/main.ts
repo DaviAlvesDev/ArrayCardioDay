@@ -56,5 +56,14 @@ const idades:number[] = inventores.map((inventor) => {
 const totalIdade:number = idades.reduce(function(accum, curr, index, array){
     return accum + curr
 })
-console.log(`O total das idades dos inventores é: ${totalIdade} anos`)
+console.log(`O total das idades dos inventores é ${totalIdade} anos:`)
+
+//Ex#5
+const array4:inventor[] = inventores.sort((inventor1, inventor2) => {
+    const idade1 = inventor1.morte - inventor1.nascimento
+    const idade2 = inventor2.morte - inventor2.nascimento
+
+    return idade1 - idade2
+})
+array4.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome} viveu ${inventor.morte - inventor.nascimento} anos`))
 console.log('\n')

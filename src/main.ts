@@ -37,3 +37,12 @@ const array2:string[] = inventores.map((element) => `${element.nome} ${element.s
 console.log('Nome e sobrenome dos inventores:')
 array2.forEach((element) => console.log(element))
 console.log('\n')
+
+//Ex#3: Ordenar os inventores por ano de nascimento, do mais velho para o mais novo
+const array3:inventor[] = inventores.sort(function(inventor1, inventor2){
+    if (inventor1.nascimento > inventor2.nascimento) return 1
+    if (inventor1.nascimento < inventor2.nascimento) return -1
+    return 0
+})
+console.log("Inventores ordenados pelo ano de nascimento (mais velho para mais novo):")
+array3.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome}, nascido(a) em ${inventor.nascimento}`))

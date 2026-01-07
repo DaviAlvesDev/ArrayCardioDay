@@ -46,3 +46,15 @@ const array3:inventor[] = inventores.sort(function(inventor1, inventor2){
 })
 console.log("Inventores ordenados pelo ano de nascimento (mais velho para mais novo):")
 array3.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobrenome}, nascido(a) em ${inventor.nascimento}`))
+console.log('\n')
+
+//Ex#4 Qual a soma da idade de todos os inventores?
+const idades:number[] = inventores.map((inventor) => {
+    const idade = inventor.morte - inventor.nascimento
+    return idade
+})
+const totalIdade:number = idades.reduce(function(accum, curr, index, array){
+    return accum + curr
+})
+console.log(`O total das idades dos inventores é: ${totalIdade} anos`)
+console.log('\n')

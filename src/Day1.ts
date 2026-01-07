@@ -51,13 +51,9 @@ invAnoNasc.forEach((inventor) => console.log(`${inventor.nome} ${inventor.sobren
 console.log('\n')
 
 //Ex#4 Qual a soma da idade de todos os inventores?
-const idades:number[] = inventores.map((inventor) => {
-    const idade = inventor.morte - inventor.nascimento
-    return idade
-})
-const totalIdade:number = idades.reduce(function(accum, curr, index, array){
-    return accum + curr
-})
+const totalIdade = inventores.reduce((total, inventor) => {
+    return total + (inventor.morte - inventor.nascimento)
+}, 0)
 console.log(`O total das idades dos inventores é ${totalIdade} anos:`)
 
 //Ex#5 Ordenar os inventores com base nos anos vividos
@@ -97,5 +93,5 @@ const instTransportes = transportes.reduce(function(totalTransporte: Record<stri
 }, {})
 
 console.log('Número de instâncias por transporte:')
-Object.entries(instTransportes).forEach((transporte) => console.log(`${transporte[0]}: ${transporte[1]}`))
+Object.entries(instTransportes).forEach(([transporte, instancias]) => console.log(`${transporte}: ${instancias}`))
 console.log('\n')

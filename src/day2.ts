@@ -39,3 +39,17 @@ console.log('\n')
 const coment = comentarios.find((coment) => coment.id == 823423)
 console.log(`O comentário com ID ${coment?.id} é: "${coment?.texto}"`)
 console.log('\n')
+
+//Ex#3 Deletar o comentário com o ID 823423
+const comentIndex = comentarios.findIndex((coment) => coment.id == 823423)
+
+if (comentIndex > -1) {
+    console.log(`Comentário "${comentarios[comentIndex]?.texto}" (ID ${comentarios[comentIndex]?.id}) apagado`)
+    console.log('\n')
+    comentarios.splice(comentIndex, 1)
+} else {
+    console.log('Não existe um comentário com esse ID')
+}
+
+console.log('Comentários restantes:')
+comentarios.forEach((coment) => console.log(`${coment.texto} (ID ${coment.id})`))

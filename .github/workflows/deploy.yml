@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # Executa toda vez que você der push na main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install TypeScript and Build 🏗️
+        run: |
+          npm install -g typescript
+          tsc # Isso vai rodar o seu tsconfig.json e gerar a pasta dist
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # Se o seu index.html estiver na raiz, use '.'
+          branch: gh-pages # O Action vai criar essa branch sozinho

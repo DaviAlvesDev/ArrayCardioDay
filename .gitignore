@@ -80,7 +80,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist/
 build/
 
 # Gatsby files
@@ -90,7 +89,6 @@ build/
 # public
 
 # vuepress build output
-.vuepress/dist
 
 # vuepress v2.x temp and cache directory
 .temp
@@ -100,7 +98,6 @@ build/
 .svelte-kit/
 
 # vitepress build output
-**/.vitepress/dist
 
 # vitepress cache directory
 **/.vitepress/cache

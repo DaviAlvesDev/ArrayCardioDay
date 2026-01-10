@@ -19,10 +19,13 @@ jobs:
       - name: Install TypeScript and Build 🏗️
         run: |
           npm install -g typescript
-          tsc # Isso vai rodar o seu tsconfig.json e gerar a pasta dist
+          tsc
+          # Este comando remove o dist do ignore apenas dentro do servidor
+          sed -i '/dist/d' .gitignore || true 
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: . # Se o seu index.html estiver na raiz, use '.'
-          branch: gh-pages # O Action vai criar essa branch sozinho
+          folder: . 
+          branch: gh-pages
+          clean: true
